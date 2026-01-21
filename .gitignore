@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+*.log
+
+# iOS
+.DS_Store
+build/
+*.xcuserstate
+DerivedData/
+
+# General
+logs/
+.vscode/
+.idea/

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skyscraper Altimeter Viewer</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+      pre {
+        background: #f6f8fa;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Skyscraper Altimeter Viewer</h1>
+    <p>Polling <code>/latest</code> every 3 seconds.</p>
+    <pre id="output">Waiting for data...</pre>
+
+    <script>
+      const output = document.getElementById("output");
+      async function poll() {
+        try {
+          const response = await fetch("/latest", { cache: "no-store" });
+          if (response.status === 204) {
+            output.textContent = "No data yet.";
+            return;
+          }
+          const data = await response.json();
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          output.textContent = `Error: ${error}`;
+        }
+      }
+
+      poll();
+      setInterval(poll, 3000);
+    </script>
+  </body>
+</html>
