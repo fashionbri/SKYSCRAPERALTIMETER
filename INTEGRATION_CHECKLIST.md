@@ -27,4 +27,36 @@
 - [ ] Timestamp included
 - [ ] Relative
 
+---
+
+## 🚨 SHOW-DAY RED STOP (Hard No-Go Conditions)
+Stop and escalate if any are true:
+
+- [ ] `/health` endpoint is blank or non-200
+- [ ] Server only reachable on localhost
+- [ ] Phone cannot reach server IP:PORT
+- [ ] Altitude data freezes for more than 10 seconds
+- [ ] Bluetooth instability affects capture
+- [ ] Units or field names don’t match graphics
+- [ ] Any last-minute network change is requested
+
+---
+
+## Android Appendix (Galaxy S25)
+
+### Sensors
+- Use Android `TYPE_PRESSURE` (barometer)
+- Compute **relative altitude** from pressure deltas only
+
+### Capture Rules
+- Sample rate: fastest stable (GAME)
+- Smooth pressure slightly to avoid jitter
+- Accumulate **vertical gain since start**
+- Buffer briefly if network drops
+
+### Phone Settings
+- Disable battery optimization
+- Do Not Disturb ON
+- Screen stays awake
+- Do not touch phone after start
 

@@ -1,5 +1,8 @@
 # SKYSCRAPERALTIMETER
 
+**Start here:** [Integration Checklist](INTEGRATION_CHECKLIST.md)
+
+
 Live iPhone altimeter relay for broadcast graphics.
 
 ## Overview
